@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class InputTodo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      title: '',
     };
   }
 
@@ -15,30 +16,38 @@ export default class InputTodo extends Component {
   };
 
   handleSubmit = (e) => {
+    const { title } = this.state;
+    const { onSubmit } = this.props;
     e.preventDefault();
-    if (this.state.title.trim()) {
-      this.props.onSubmit(this.state.title);
+    if (title.trim()) {
+      onSubmit(title);
       this.setState({
-        title: "",
+        title: '',
       });
     } else {
-      alert("Please write item");
+      // eslint-disable-next-line no-alert
+      alert('Please write item');
     }
   };
 
   render() {
+    const { title } = this.state;
     return (
       <form onSubmit={this.handleSubmit} className="formContainer">
         <input
           type="text"
           placeholder="Add todo..."
-          value={this.state.title}
+          value={title}
           name="title"
           onChange={this.handleChange}
           className="inputText"
         />
-        <button className="inputSubmit">Submit</button>
+        <button type="button" className="inputSubmit">Submit</button>
       </form>
     );
   }
 }
+
+InputTodo.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

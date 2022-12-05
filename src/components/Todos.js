@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import InputTodo from "./InputTodo";
-import ListTodos from "./ListTodos";
+import React, { Component } from 'react';
+import InputTodo from './InputTodo';
+import ListTodos from './ListTodos';
 
 export default class Todos extends Component {
   constructor(props) {
@@ -12,11 +12,12 @@ export default class Todos extends Component {
   }
 
   handleSubmit = (title) => {
-    const { length } = this.state.todos;
-    const id = this.state.todos.length ? length + 1 : 1;
+    const { todos } = this.state;
+    const { length } = todos;
+    const id = todos.length ? length + 1 : 1;
     const newTodo = {
-      id: id,
-      title: title,
+      id,
+      title,
       completed: false,
     };
 
@@ -25,29 +26,32 @@ export default class Todos extends Component {
       todos: [...prev.todos, newTodo],
     }));
   };
-    
-    handleDelete = id => {
-         const todos = this.state.todos.filter((t) => t.id !== id);
-         this.setState({ todos });
-    }
 
-    handleCheck = id => {
-        this.setState(prev => ({
-            ...prev,
-            todos: prev.todos.map((todo) => {
-                if (todo.id === id) {
-                    todo.completed = !todo.completed;
-                }
-            })
-        }))
-    }
+  handleDelete = (id) => {
+    const { todos } = this.state;
+    const newtodos = todos.filter((t) => t.id !== id);
+    this.setState({ newtodos });
+  };
 
-    render() {
-        const items = this.state.todos;
+  handleCheck = (id) => {
+    this.setState((prev) => ({
+      ...prev,
+      // eslint-disable-next-line array-callback-return
+      todos: prev.todos.map((todo) => {
+        if (todo.id === id) {
+          // eslint-disable-next-line no-param-reassign
+          todo.completed = !todo.completed;
+        }
+      }),
+    }));
+  };
+
+  render() {
+    const { todos } = this.state;
     return (
       <div>
-            <InputTodo onSubmit={this.handleSubmit} />
-            <ListTodos todos={items} onCheck={this.handleCheck} onDelete={this.handleDelete} />
+        <InputTodo onSubmit={this.handleSubmit} />
+        <ListTodos todos={todos} onCheck={this.handleCheck} onDelete={this.handleDelete} />
       </div>
     );
   }

@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ListTodos = (props) => {
   const { todos, onCheck, onDelete } = props;
@@ -22,6 +23,11 @@ const ListTodos = (props) => {
   );
 };
 
-ListTodos.propTypes = {};
+ListTodos.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  todos: PropTypes.array.isRequired,
+  onCheck: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
 
 export default ListTodos;

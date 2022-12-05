@@ -21,19 +21,19 @@ body {
   margin: 0 auto;
 }
 
-header{
-   padding: "20px 0";
-  line-height: "1.5em";
+header {
+  padding: 20px 0;
+  line-height: 1.5em;
 }
 
 .headerTitle {
-  font-size: "6rem";
-  font-weight: "600";
-  margin-bottom: "2rem";
-  line-height: "1em";
-  color: "#ececec";
-  text-transform: "lowercase";
-  text-align: "center";
+  font-size: 6rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1em;
+  color: #ececec;
+  text-transform: lowercase;
+  text-align: center;
 }
 
 .formContainer {
@@ -44,6 +44,7 @@ header{
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
   justify-content: space-evenly;
 }
+
 .inputText {
   font-size: 1rem;
   font-weight: 400;
@@ -52,6 +53,7 @@ header{
   padding-left: 10px;
   border-radius: calc(0.5 * 100px);
 }
+
 .input-text::placeholder {
   color: #000;
 }
@@ -64,6 +66,7 @@ header{
   font-weight: 600;
   margin-right: 10px;
 }
+
 .inputText,
 .inputSubmit {
   height: 45px;
@@ -71,13 +74,12 @@ header{
   border: none;
 }
 
-
 .item {
   display: flex;
   width: 100%;
   font-size: 1.2rem;
   list-style-type: none;
-  padding: 17px 0px;
+  padding: 17px 0;
   border-bottom: 1px solid #eaeaea;
 }
 
