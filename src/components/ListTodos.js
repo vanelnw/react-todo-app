@@ -13,7 +13,7 @@ const ListTodos = (props) => {
             checked={todo.completed}
             onChange={() => onCheck(todo.id)}
           />
-          <p>{todo.title}</p>
+          <p className={todo.completed ? 'todoCompleted' : ''}>{todo.title}</p>
           <button type="button" className="" onClick={() => onDelete(todo.id)}>
             Delete
           </button>

@@ -42,7 +42,7 @@ export default class InputTodo extends Component {
           onChange={this.handleChange}
           className="inputText"
         />
-        <button type="button" className="inputSubmit">Submit</button>
+        <button type="submit" className="inputSubmit">Submit</button>
       </form>
     );
   }

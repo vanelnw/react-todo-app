@@ -34,16 +34,17 @@ export default class Todos extends Component {
   };
 
   handleCheck = (id) => {
-    this.setState((prev) => ({
-      ...prev,
-      // eslint-disable-next-line array-callback-return
-      todos: prev.todos.map((todo) => {
-        if (todo.id === id) {
-          // eslint-disable-next-line no-param-reassign
-          todo.completed = !todo.completed;
+    console.log(id);
+    const { todos } = this.state;
+    this.setState({
+      todos: todos.map((todo) => {
+        const old = todo;
+        if (old.id === id) {
+          old.completed = !todo.completed;
         }
+        return old;
       }),
-    }));
+    });
   };
 
   render() {

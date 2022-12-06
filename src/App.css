@@ -76,6 +76,7 @@ header {
 
 .item {
   display: flex;
+  align-items: center;
   width: 100%;
   font-size: 1.2rem;
   list-style-type: none;
@@ -85,6 +86,11 @@ header {
 
 .checkbox {
   margin-right: 15px;
+}
+
+.item p {
+width: 80%;
+margin-left: 10px;
 }
 
 .item button {
@@ -99,4 +105,11 @@ header {
   height: 50px;
   width: 50px;
   margin: -10px 0 0 10px;
+}
+
+.todoCompleted{
+   font-style: italic;
+  color: #595959;
+  opacity: 0.4;
+  text-decoration: line-through;
 }
